@@ -65,6 +65,8 @@ export default {
   width: 100%;
   height: 40px;
   outline: none;
+  padding: 10px;
+  text-transform: uppercase;
 }
 
 .space {
