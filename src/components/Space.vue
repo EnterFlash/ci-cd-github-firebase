@@ -2,6 +2,15 @@
   <div>
 <!--    Code source: https://codepen.io/mgitch/pen/pECcD-->
     <div class="space">
+
+      <div class="options">
+        <select id="planets" v-model="planetColor" aria-label="Planets">
+          <option value="#ff5f40">Mars</option>
+          <option value="#cca770">Venus</option>
+          <option value="#7697c2">Neptune</option>
+        </select>
+      </div>
+
       <div class="ship">
         <div class="ship-rotate">
           <div class="pod"></div>
@@ -15,7 +24,7 @@
           <div class="small-tentacle"></div>
         </div>
         <div class="planet">
-          <div class="surface"></div>
+          <div class="surface" :style="'background: ' + planetColor"></div>
           <div class="crater1"></div>
           <div class="crater2"></div>
           <div class="crater3"></div>
@@ -29,6 +38,11 @@
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      planetColor: '#ff5f40'
+    }
+  },
   props: {
     msg: String
   }
@@ -36,6 +50,24 @@ export default {
 </script>
 
 <style>
+.options {
+  background-color: #273946;
+  width: 30%;
+  margin: 10px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  color: white;
+}
+
+.options select {
+  border: none;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
 .space {
   position: absolute;
   top: 0;
@@ -138,7 +170,6 @@ export default {
   right: -10%;
   box-sizing: border-box;
   border: 30px solid rgba(0, 0, 0, 0.15);
-  background: #ff5f40;
 }
 .space .mars .planet .crater1,
 .space .mars .planet .crater2,
